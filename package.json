@@ -1,0 +1,25 @@
+{
+  "name": "oatsyntaxhighlighter",
+  "displayName": "OAT-syntax-highlighter",
+  "description": "A syntax highlighter for the OAT language from the University of Pennsylvania.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "oat",
+      "aliases": ["OAT", "oat"],
+      "extensions": [".oat"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "oat",
+      "scopeName": "source.oat",
+      "path": "./syntaxes/oat.tmLanguage.json"
+    }]
+  }
+}
