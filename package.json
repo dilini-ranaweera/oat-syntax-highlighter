@@ -3,6 +3,12 @@
   "displayName": "OAT-syntax-highlighter",
   "description": "A syntax highlighter for the OAT language from the University of Pennsylvania.",
   "version": "0.0.1",
+  "publisher": "dilini-ranaweera",
+  "icon": "penn-engineering.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dilini-ranaweera/oat-syntax-highlighter.git"
+  },
   "engines": {
     "vscode": "^1.90.0"
   },
