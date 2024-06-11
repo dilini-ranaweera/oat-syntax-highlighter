@@ -14,10 +14,16 @@
 	],
 	"repository": {
 		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.oat",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
+			"patterns": [
+				{
+					"name": "keyword.control.oat",
+					"match": "\\b(if|while|for|return)\\b"
+				},
+				 {
+					"name": "keyword.varstuff.oat",
+					"match": "\\b(var)\\b"
+				 }
+			]
 		},
 		"strings": {
 			"name": "string.quoted.double.oat",
@@ -34,7 +40,7 @@
 			"patterns": [
 				{
 					"name": "storage.builtin.types.oat",
-					"match": "\\b(int|true|false)\\b"
+					"match": "\\b(int|true|false|string|void)\\b"
 				}
 			]
 		}
