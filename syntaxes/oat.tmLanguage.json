@@ -7,6 +7,9 @@
 		},
 		{
 			"include": "#strings"
+		},
+		{
+			"include": "#types"
 		}
 	],
 	"repository": {
@@ -24,6 +27,14 @@
 				{
 					"name": "constant.character.escape.oat",
 					"match": "\\\\."
+				}
+			]
+		},
+		"types": {
+			"patterns": [
+				{
+					"name": "storage.builtin.types.oat",
+					"match": "\\b(int|true|false)\\b"
 				}
 			]
 		}
