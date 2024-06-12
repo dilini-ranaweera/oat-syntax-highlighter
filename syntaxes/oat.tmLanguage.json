@@ -17,11 +17,11 @@
 			"patterns": [
 				{
 					"name": "keyword.control.oat",
-					"match": "\\b(if|while|for|return)\\b"
+					"match": "\\b(if|while|for|return|else)\\b"
 				},
 				 {
-					"name": "keyword.varstuff.oat",
-					"match": "\\b(var)\\b"
+					"name": "keyword.declaration.oat",
+					"match": "\\b(var|new|global|struct)\\b"
 				 }
 			]
 		},
@@ -40,7 +40,7 @@
 			"patterns": [
 				{
 					"name": "storage.builtin.types.oat",
-					"match": "\\b(int|true|false|string|void)\\b"
+					"match": "\\b(int|true|false|string|void|bool)\\b"
 				}
 			]
 		}
