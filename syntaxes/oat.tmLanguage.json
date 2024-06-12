@@ -19,10 +19,10 @@
 					"name": "keyword.control.oat",
 					"match": "\\b(if|while|for|return|else)\\b"
 				},
-				 {
+				{
 					"name": "keyword.declaration.oat",
 					"match": "\\b(var|new|global|struct)\\b"
-				 }
+				}
 			]
 		},
 		"strings": {
