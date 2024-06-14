@@ -19,6 +19,9 @@
 		},
 		{
 			"include": "#builtins"
+		},
+		{
+			"include": "#function-headers"
 		}
 	],
 	"repository": {
@@ -85,6 +88,14 @@
 				{
 					"name": "support.function.builtin.oat",
 					"match": "\\b(print_string|print_int|print_bool|string_of_array|array_of_string)\\b"
+				}
+			]
+		},
+		"function-headers" : {
+			"patterns": [
+				{
+					"name": "entity.name.function.oat",
+					"match": "\\b\\w+\\s+\\w+\\s*\\(.*?\\)"
 				}
 			]
 		}
