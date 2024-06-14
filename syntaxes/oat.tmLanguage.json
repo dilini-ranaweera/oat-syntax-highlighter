@@ -10,14 +10,31 @@
 		},
 		{
 			"include": "#types"
+		}, 
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#literals"
+		},
+		{
+			"include": "#builtins"
 		}
 	],
 	"repository": {
 		"keywords": {
 			"patterns": [
 				{
+					"name": "keyword.control.if-question.oat",
+					"match": "\\bif\\?"
+				},
+				{
+					"name": "keyword.control.if.oat",
+					"match": "\\bif\\b"
+				},
+				{
 					"name": "keyword.control.oat",
-					"match": "\\b(if|while|for|return|else)\\b"
+					"match": "\\b(while|for|return|else)\\b"
 				},
 				{
 					"name": "keyword.declaration.oat",
@@ -40,7 +57,34 @@
 			"patterns": [
 				{
 					"name": "storage.builtin.types.oat",
-					"match": "\\b(int|true|false|string|void|bool)\\b"
+					"match": "\\b(int|string|void|bool)\\b"
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"name": "constant.numeric.integer.oat",
+					"match": "\\b(?<![%!.#+])(\\d+)(?!\\.)\\b"
+				}
+			]
+		},
+		"literals": {
+			"patterns": [
+				{
+					"name": "constant.language.oat",
+					"match": "\\b(true|false|null)\\b"
+				},
+				{
+					"include": "#numbers"
+				}
+			]
+		},
+		"builtins": {
+			"patterns": [
+				{
+					"name": "support.function.builtin.oat",
+					"match": "\\b(print_string|print_int|print_bool|string_of_array|array_of_string)\\b"
 				}
 			]
 		}
