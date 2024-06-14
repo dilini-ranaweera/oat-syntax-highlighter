@@ -16,6 +16,9 @@
 		},
 		{
 			"include": "#literals"
+		},
+		{
+			"include": "#builtins"
 		}
 	],
 	"repository": {
@@ -74,6 +77,14 @@
 				},
 				{
 					"include": "#numbers"
+				}
+			]
+		},
+		"builtins": {
+			"patterns": [
+				{
+					"name": "support.function.builtin.oat",
+					"match": "\\b(print_string|print_int|print_bool|string_of_array|array_of_string)\\b"
 				}
 			]
 		}
