@@ -3,6 +3,9 @@
 	"name": "OAT",
 	"patterns": [
 		{
+			"include": "#function-headers"
+		},
+		{
 			"include": "#keywords"
 		},
 		{
@@ -21,10 +24,38 @@
 			"include": "#builtins"
 		},
 		{
-			"include": "#function-headers"
+			"include": "#punctuation"
 		}
 	],
 	"repository": {
+		"function-headers" : {
+			"begin": "(\\w*)(\\()",
+			"end": "\\)",
+			"beginCaptures": {
+				"1": {
+					"name": "entity.name.function"
+				},
+				"2": {
+					"name": "punctuation.separator.parameters.begin.oat"
+				}
+			},
+			"endCaptures" : {
+				"0" : {
+					"name" : "punctuation.separator.parameters.end.oat"
+				}
+			},
+			"patterns" : [
+				{
+					"include" : "#types"
+				},
+				{
+					"include": "#numbers"
+				},
+				{
+					"include": "#types"
+				}
+			]
+		},
 		"keywords": {
 			"patterns": [
 				{
@@ -91,11 +122,31 @@
 				}
 			]
 		},
-		"function-headers" : {
+		"punctuation" : {
 			"patterns": [
 				{
-					"name": "entity.name.function.oat",
-					"match": "\\b\\w+\\s+\\w+\\s*\\(.*?\\)"
+					"name": "punctuation.separator.parameters.begin.oat",
+					"match": "\\("
+				},
+				{
+					"name": "punctation.separator.parameters.end.oat",
+					"match": "\\)"
+				},
+				{
+					"name": "punctuation.separator.element.oat",
+					"match": ","
+				},
+				{
+					"name": "punctuation.separator.colon.oat",
+					"match": ":"
+				},
+				{
+					"name": "punctuation.section.block.begin.bracket.curly.oat",
+					"match": "{"
+				},
+				{
+					"name": "punctuation.section.block.end.bracket.curly.oat",
+					"match": "}"
 				}
 			]
 		}
