@@ -3,9 +3,6 @@
 	"name": "OAT",
 	"patterns": [
 		{
-			"include": "#function-headers"
-		},
-		{
 			"include": "#keywords"
 		},
 		{
@@ -25,37 +22,12 @@
 		},
 		{
 			"include": "#punctuation"
+		},
+		{
+			"include": "#function-headers"
 		}
 	],
 	"repository": {
-		"function-headers" : {
-			"begin": "(\\w*\\s?)(\\()",
-			"end": "\\)",
-			"beginCaptures": {
-				"1": {
-					"name": "entity.name.function"
-				},
-				"2": {
-					"name": "punctuation.separator.parameters.begin.oat"
-				}
-			},
-			"endCaptures" : {
-				"0" : {
-					"name" : "punctuation.separator.parameters.end.oat"
-				}
-			},
-			"patterns" : [
-				{
-					"include" : "#types"
-				},
-				{
-					"include": "#numbers"
-				},
-				{
-					"include": "#types"
-				}
-			]
-		},
 		"keywords": {
 			"patterns": [
 				{
@@ -147,6 +119,34 @@
 				{
 					"name": "punctuation.section.block.end.bracket.curly.oat",
 					"match": "}"
+				}
+			]
+		},
+		"function-headers" : {
+			"begin": "(\\w*\\s?)(\\()",
+			"end": "\\)",
+			"beginCaptures": {
+				"1": {
+					"name": "entity.name.function"
+				},
+				"2": {
+					"name": "punctuation.separator.parameters.begin.oat"
+				}
+			},
+			"endCaptures" : {
+				"0" : {
+					"name" : "punctuation.separator.parameters.end.oat"
+				}
+			},
+			"patterns" : [
+				{
+					"include" : "#types"
+				},
+				{
+					"include": "#numbers"
+				},
+				{
+					"include": "#types"
 				}
 			]
 		}
