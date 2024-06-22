@@ -29,7 +29,7 @@
 	],
 	"repository": {
 		"function-headers" : {
-			"begin": "(\\w*\\s*)(\\()",
+			"begin": "(\\w*\\s?)(\\()",
 			"end": "\\)",
 			"beginCaptures": {
 				"1": {
