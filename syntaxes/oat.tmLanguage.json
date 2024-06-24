@@ -156,6 +156,9 @@
 				},
 				{
 					"include" : "#struct-highlighting"
+				},
+				{
+					"include" : "#variables"
 				}
 			]
 		},
@@ -178,8 +181,8 @@
 		"variables" : {
 			"patterns" : [
 				{
-					"name": "entity.name.type.variable",
-					"match" : "\\b[a-z]+\\b(?!\\?)"
+					"name": "entity.name.variable",
+					"match" : "\\b[a-z0-9_]+(?:_[a-z0-9_]+)*\\b(?!\\?)"
 				}
 			]
 		}
