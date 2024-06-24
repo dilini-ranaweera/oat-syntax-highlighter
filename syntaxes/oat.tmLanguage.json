@@ -28,6 +28,9 @@
 		},
 		{
 			"include" : "#struct-highlighting"
+		},
+		{
+			"include" : "#variables"
 		}
 	],
 	"repository": {
@@ -169,6 +172,14 @@
 				{
 					"name" : "entity.name.type.struct",
 					"match" : "[A-Z][a-z]*"
+				}
+			]
+		},
+		"variables" : {
+			"patterns" : [
+				{
+					"name": "entity.name.type.variable",
+					"match" : "\\b[a-z]+\\b(?!\\?)"
 				}
 			]
 		}
