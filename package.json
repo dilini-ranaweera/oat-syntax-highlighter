@@ -22,6 +22,11 @@
       "extensions": [".oat"],
       "configuration": "./language-configuration.json"
     }],
+    "theme": [
+      {
+        "path": "./oat.tmTheme"
+      }
+    ],
     "grammars": [{
       "language": "oat",
       "scopeName": "source.oat",
