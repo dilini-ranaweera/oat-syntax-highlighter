@@ -31,6 +31,9 @@
 		},
 		{
 			"include" : "#variables"
+		},
+		{
+			"include" : "#dot-operators"
 		}
 	],
 	"repository": {
@@ -183,6 +186,14 @@
 				{
 					"name": "entity.name.variable",
 					"match" : "\\b[a-z0-9_]+(?:_[a-z0-9_]+)*\\b(?!\\?)"
+				}
+			]
+		},
+		"dot-operators" : {
+			"patterns" : [
+				{
+					"name": "entity.name.function.dot-method.oat",
+					"match" : "\\.\\w+"
 				}
 			]
 		}
