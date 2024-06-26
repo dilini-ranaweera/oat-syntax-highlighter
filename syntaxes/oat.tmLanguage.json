@@ -2,356 +2,318 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "OAT",
 	"patterns": [
-		{
-			"include": "#keywords"
-		},
-		{
-			"include" : "#for-loop"
-		},
-		{
-			"include" : "#while-loop"
-		},
-		{
-			"include" : "#if-statement"
-		},
-		{
-			"include" : "#checked-downcast"
-		},
-		{
-			"include": "#strings"
-		},
-		{
-			"include": "#types"
-		}, 
-		{
-			"include": "#numbers"
-		},
-		{
-			"include": "#literals"
-		},
-		{
-			"include": "#builtins"
-		},
-		{
-			"include": "#punctuation"
-		},
-		{
-			"include": "#function-headers"
-		},
-		{
-			"include" : "#struct-highlighting"
-		},
-		{
-			"include" : "#variables"
-		},
-		{
-			"include" : "#dot-operators"
-		}
+	  {
+		"include": "#keywords"
+	  },
+	  {
+		"include": "#for-loop"
+	  },
+	  {
+		"include": "#while-loop"
+	  },
+	  {
+		"include": "#if-statement"
+	  },
+	  {
+		"include": "#checked-downcast"
+	  },
+	  {
+		"include" : "#expression"
+	  },
+	  {
+		"include": "#strings"
+	  },
+	  {
+		"include": "#types"
+	  },
+	  {
+		"include": "#numbers"
+	  },
+	  {
+		"include": "#literals"
+	  },
+	  {
+		"include": "#builtins"
+	  },
+	  {
+		"include": "#punctuation"
+	  },
+	  {
+		"include": "#function-headers"
+	  },
+	  {
+		"include": "#struct-highlighting"
+	  },
+	  {
+		"include": "#variables"
+	  },
+	  {
+		"include": "#dot-operators"
+	  }
 	],
 	"repository": {
-		"keywords": {
-			"patterns": [
-				{
-					"name": "keyword.control.other",
-					"match": "\\b(return|else)\\b"
-				},
-				{
-					"name": "keyword.declaration.oat",
-					"match": "\\b(var|new|global|struct)\\b"
-				}
-			]
+	  "keywords": {
+		"patterns": [
+		  {
+			"name": "keyword.control.if-question.oat",
+			"match": "\\bif\\?"
+		  },
+		  {
+			"name": "keyword.control.if.oat",
+			"match": "\\bif\\b"
+		  },
+		  {
+			"name": "keyword.control.oat",
+			"match": "\\b(while|for|return|else)\\b"
+		  },
+		  {
+			"name": "keyword.declaration.oat",
+			"match": "\\b(var|new|global|struct)\\b"
+		  }
+		]
+	  },
+	  "for-loop": {
+		"begin": "\\bfor\\s*\\(",
+		"end": "\\)",
+		"beginCaptures": {
+		  "0": {
+			"name": "keyword.control.for-loop.oat"
+		  }
 		},
-		"for-loop" : {
-			"begin" : "\\bfor\\(",
-			"end" : "\\)",
-			"beginCaptures" : {
-				"1": {
-					"name": "keyword.control.for-loop"
-				},
-				"2": {
-					"name": "punctuation.separator.parameters.begin.oat"
-				}
-			},
-			"endCaptures" : {
-				"0" : {
-					"name" : "punctuation.separator.parameters.end.oat"
-				}
-			},
-			"patterns" : [
-				{
-					"include" : "#types"
-				},
-				{
-					"include": "#numbers"
-				},
-				{
-					"include" : "#struct-highlighting"
-				},
-				{
-					"include" : "#variables"
-				},
-				{
-					"include" : "#dot-operators"
-				},
-				{
-					"include" : "#keywords"
-				}
-			]
+		"endCaptures": {
+		  "0": {
+			"name": "punctuation.separator.parameters.end.oat"
+		  }
 		},
-		"while-loop" : {
-			"begin" : "\\bwhile\\(",
-			"end" : "\\)",
-			"beginCaptures" : {
-				"1": {
-					"name": "keyword.control.while-loop"
-				},
-				"2": {
-					"name": "punctuation.separator.parameters.begin.oat"
-				}
-			},
-			"endCaptures" : {
-				"0" : {
-					"name" : "punctuation.separator.parameters.end.oat"
-				}
-			},
-			"patterns" : [
-				{
-					"include" : "#types"
-				},
-				{
-					"include": "#numbers"
-				},
-				{
-					"include" : "#struct-highlighting"
-				},
-				{
-					"include" : "#variables"
-				},
-				{
-					"include" : "#dot-operators"
-				},
-				{
-					"include" : "#keywords"
-				}
-			]
+		"patterns": [
+		  {
+			"include": "#expression"
+		  }
+		]
+	  },
+	  "while-loop": {
+		"begin": "\\bwhile\\s*\\(",
+		"end": "\\)",
+		"beginCaptures": {
+		  "0": {
+			"name": "keyword.control.while-loop.oat"
+		  }
 		},
-		"if-statement" : {
-			"begin" : "\\bif\\(",
-			"end" : "\\)",
-			"beginCaptures" : {
-				"1": {
-					"name": "keyword.control.if-statement"
-				},
-				"2": {
-					"name": "punctuation.separator.parameters.begin.oat"
-				}
-			},
-			"endCaptures" : {
-				"0" : {
-					"name" : "punctuation.separator.parameters.end.oat"
-				}
-			},
-			"patterns" : [
-				{
-					"include" : "#types"
-				},
-				{
-					"include": "#numbers"
-				},
-				{
-					"include" : "#struct-highlighting"
-				},
-				{
-					"include" : "#variables"
-				},
-				{
-					"include" : "#dot-operators"
-				},
-				{
-					"include" : "#keywords"
-				}
-			]
+		"endCaptures": {
+		  "0": {
+			"name": "punctuation.separator.parameters.end.oat"
+		  }
 		},
-		"checked-downcast" : {
-			"begin" : "\\bif\\?\\(",
-			"end" : "\\)",
-			"beginCaptures" : {
-				"1": {
-					"name": "keyword.control.checked-downcast"
-				},
-				"2": {
-					"name": "punctuation.separator.parameters.begin.oat"
-				}
-			},
-			"endCaptures" : {
-				"0" : {
-					"name" : "punctuation.separator.parameters.end.oat"
-				}
-			},
-			"patterns" : [
-				{
-					"include" : "#types"
-				},
-				{
-					"include": "#numbers"
-				},
-				{
-					"include" : "#struct-highlighting"
-				},
-				{
-					"include" : "#variables"
-				},
-				{
-					"include" : "#dot-operators"
-				},
-				{
-					"include" : "#keywords"
-				}
-			]
+		"patterns": [
+		  {
+			"include": "#expression"
+		  }
+		]
+	  },
+	  "if-statement": {
+		"begin": "\\bif\\s*\\(",
+		"end": "\\)",
+		"beginCaptures": {
+		  "0": {
+			"name": "keyword.control.if-statement.oat"
+		  }
 		},
-		"strings": {
-			"name": "string.quoted.double.oat",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.oat",
-					"match": "\\\\."
-				}
-			]
+		"endCaptures": {
+		  "0": {
+			"name": "punctuation.separator.parameters.end.oat"
+		  }
 		},
-		"types": {
-			"patterns": [
-				{
-					"name": "storage.builtin.types.oat",
-					"match": "\\b(int|string|void|bool)\\b"
-				}
-			]
+		"patterns": [
+		  {
+			"include": "#expression"
+		  }
+		]
+	  },
+	  "checked-downcast": {
+		"begin": "\\bif\\?\\s*\\(",
+		"end": "\\)",
+		"beginCaptures": {
+		  "0": {
+			"name": "keyword.control.checked-downcast.oat"
+		  }
 		},
-		"numbers": {
-			"patterns": [
-				{
-					"name": "constant.numeric.integer.oat",
-					"match": "\\b(?<![%!.#+])(\\d+)(?!\\.)\\b"
-				}
-			]
+		"endCaptures": {
+		  "0": {
+			"name": "punctuation.separator.parameters.end.oat"
+		  }
 		},
-		"literals": {
-			"patterns": [
-				{
-					"name": "constant.language.oat",
-					"match": "\\b(true|false|null)\\b"
-				},
-				{
-					"include": "#numbers"
-				}
-			]
+		"patterns": [
+		  {
+			"include": "#expression"
+		  }
+		]
+	  },
+	  "expression": {
+		"patterns": [
+		  {
+			"include": "#types"
+		  },
+		  {
+			"include": "#numbers"
+		  },
+		  {
+			"include": "#struct-highlighting"
+		  },
+		  {
+			"include": "#variables"
+		  },
+		  {
+			"include": "#dot-operators"
+		  },
+		  {
+			"include": "#keywords"
+		  }
+		]
+	  },
+	  "strings": {
+		"name": "string.quoted.double.oat",
+		"begin": "\"",
+		"end": "\"",
+		"patterns": [
+		  {
+			"name": "constant.character.escape.oat",
+			"match": "\\\\."
+		  }
+		]
+	  },
+	  "types": {
+		"patterns": [
+		  {
+			"name": "storage.builtin.types.oat",
+			"match": "\\b(int|string|void|bool)\\b"
+		  }
+		]
+	  },
+	  "numbers": {
+		"patterns": [
+		  {
+			"name": "constant.numeric.integer.oat",
+			"match": "\\b(?<![%!.#+])(\\d+)(?!\\.)\\b"
+		  }
+		]
+	  },
+	  "literals": {
+		"patterns": [
+		  {
+			"name": "constant.language.oat",
+			"match": "\\b(true|false|null)\\b"
+		  },
+		  {
+			"include": "#numbers"
+		  }
+		]
+	  },
+	  "builtins": {
+		"patterns": [
+		  {
+			"name": "support.function.builtin.oat",
+			"match": "\\b(print_string|print_int|print_bool|string_of_array|array_of_string|length)\\b"
+		  }
+		]
+	  },
+	  "punctuation": {
+		"patterns": [
+		  {
+			"name": "punctuation.separator.parameters.begin.oat",
+			"match": "\\("
+		  },
+		  {
+			"name": "punctuation.separator.parameters.end.oat",
+			"match": "\\)"
+		  },
+		  {
+			"name": "punctuation.separator.element.oat",
+			"match": ","
+		  },
+		  {
+			"name": "punctuation.separator.colon.oat",
+			"match": ":"
+		  },
+		  {
+			"name": "punctuation.section.block.begin.bracket.curly.oat",
+			"match": "{"
+		  },
+		  {
+			"name": "punctuation.section.block.end.bracket.curly.oat",
+			"match": "}"
+		  }
+		]
+	  },
+	  "function-headers": {
+		"begin": "(\\w*\\s?)(\\()",
+		"end": "\\)",
+		"beginCaptures": {
+		  "1": {
+			"name": "entity.name.function"
+		  },
+		  "2": {
+			"name": "punctuation.separator.parameters.begin.oat"
+		  }
 		},
-		"builtins": {
-			"patterns": [
-				{
-					"name": "support.function.builtin.oat",
-					"match": "\\b(print_string|print_int|print_bool|string_of_array|array_of_string|length)\\b"
-				}
-			]
+		"endCaptures": {
+		  "0": {
+			"name": "punctuation.separator.parameters.end.oat"
+		  }
 		},
-		"punctuation" : {
-			"patterns": [
-				{
-					"name": "punctuation.separator.parameters.begin.oat",
-					"match": "\\("
-				},
-				{
-					"name": "punctation.separator.parameters.end.oat",
-					"match": "\\)"
-				},
-				{
-					"name": "punctuation.separator.element.oat",
-					"match": ","
-				},
-				{
-					"name": "punctuation.separator.colon.oat",
-					"match": ":"
-				},
-				{
-					"name": "punctuation.section.block.begin.bracket.curly.oat",
-					"match": "{"
-				},
-				{
-					"name": "punctuation.section.block.end.bracket.curly.oat",
-					"match": "}"
-				}
-			]
-		},
-		"function-headers" : {
-			"begin": "(\\w*\\s?)(\\()",
-			"end": "\\)",
-			"beginCaptures": {
-				"1": {
-					"name": "entity.name.function"
-				},
-				"2": {
-					"name": "punctuation.separator.parameters.begin.oat"
-				}
-			},
-			"endCaptures" : {
-				"0" : {
-					"name" : "punctuation.separator.parameters.end.oat"
-				}
-			},
-			"patterns" : [
-				{
-					"include" : "#types"
-				},
-				{
-					"include": "#numbers"
-				},
-				{
-					"include" : "#struct-highlighting"
-				},
-				{
-					"include" : "#variables"
-				},
-				{
-					"include" : "#dot-operators"
-				},
-				{
-					"include" : "#keywords"
-				}
-			]
-		},
-		"struct-highlighting" : {
-			"patterns" : [
-				{
-					"name": "entity.name.type.possibly-null-struct-array",
-					"match": "[A-Z][a-z]*\\[\\]\\?"
-				},
-				{
-					"name" : "entity.name.type.possibly-null-struct",
-					"match" : "[A-Z][a-z]*\\?"
-				},
-				{
-					"name" : "entity.name.type.struct",
-					"match" : "[A-Z][a-z]*"
-				}
-			]
-		},
-		"variables" : {
-			"patterns" : [
-				{
-					"name": "entity.name.variable",
-					"match" : "\\b[a-z0-9_]+(?:_[a-zA-Z0-9_]+)*\\b(?!\\?)"
-				}
-			]
-		},
-		"dot-operators" : {
-			"patterns" : [
-				{
-					"name": "entity.name.function.dot-method.oat",
-					"match" : "\\.\\w+"
-				}
-			]
-		}
+		"patterns": [
+		  {
+			"include": "#types"
+		  },
+		  {
+			"include": "#numbers"
+		  },
+		  {
+			"include": "#struct-highlighting"
+		  },
+		  {
+			"include": "#variables"
+		  },
+		  {
+			"include": "#dot-operators"
+		  },
+		  {
+			"include": "#keywords"
+		  }
+		]
+	  },
+	  "struct-highlighting": {
+		"patterns": [
+		  {
+			"name": "entity.name.type.possibly-null-struct-array",
+			"match": "[A-Z][a-z]*\\[\\]\\?"
+		  },
+		  {
+			"name": "entity.name.type.possibly-null-struct",
+			"match": "[A-Z][a-z]*\\?"
+		  },
+		  {
+			"name": "entity.name.type.struct",
+			"match": "[A-Z][a-z]*"
+		  }
+		]
+	  },
+	  "variables": {
+		"patterns": [
+		  {
+			"name": "entity.name.variable",
+			"match": "\\b[a-z0-9_]+(?:_[a-zA-Z0-9_]+)*\\b(?!\\?)"
+		  }
+		]
+	  },
+	  "dot-operators": {
+		"patterns": [
+		  {
+			"name": "entity.name.function.dot-method.oat",
+			"match": "\\.\\w+"
+		  }
+		]
+	  }
 	},
 	"scopeName": "source.oat"
-}
+  }
+  
