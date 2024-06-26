@@ -6,6 +6,18 @@
 			"include": "#keywords"
 		},
 		{
+			"include" : "#for-loop"
+		},
+		{
+			"include" : "#while-loop"
+		},
+		{
+			"include" : "#if-statement"
+		},
+		{
+			"include" : "#checked-downcast"
+		},
+		{
 			"include": "#strings"
 		},
 		{
@@ -40,20 +52,160 @@
 		"keywords": {
 			"patterns": [
 				{
-					"name": "keyword.control.if-question.oat",
-					"match": "\\bif\\?"
-				},
-				{
-					"name": "keyword.control.if.oat",
-					"match": "\\bif\\b"
-				},
-				{
-					"name": "keyword.control.oat",
-					"match": "\\b(while|for|return|else)\\b"
+					"name": "keyword.control.other",
+					"match": "\\b(return|else)\\b"
 				},
 				{
 					"name": "keyword.declaration.oat",
 					"match": "\\b(var|new|global|struct)\\b"
+				}
+			]
+		},
+		"for-loop" : {
+			"begin" : "\\bfor\\(",
+			"end" : "\\)",
+			"beginCaptures" : {
+				"1": {
+					"name": "keyword.control.for-loop"
+				},
+				"2": {
+					"name": "punctuation.separator.parameters.begin.oat"
+				}
+			},
+			"endCaptures" : {
+				"0" : {
+					"name" : "punctuation.separator.parameters.end.oat"
+				}
+			},
+			"patterns" : [
+				{
+					"include" : "#types"
+				},
+				{
+					"include": "#numbers"
+				},
+				{
+					"include" : "#struct-highlighting"
+				},
+				{
+					"include" : "#variables"
+				},
+				{
+					"include" : "#dot-operators"
+				},
+				{
+					"include" : "#keywords"
+				}
+			]
+		},
+		"while-loop" : {
+			"begin" : "\\bwhile\\(",
+			"end" : "\\)",
+			"beginCaptures" : {
+				"1": {
+					"name": "keyword.control.while-loop"
+				},
+				"2": {
+					"name": "punctuation.separator.parameters.begin.oat"
+				}
+			},
+			"endCaptures" : {
+				"0" : {
+					"name" : "punctuation.separator.parameters.end.oat"
+				}
+			},
+			"patterns" : [
+				{
+					"include" : "#types"
+				},
+				{
+					"include": "#numbers"
+				},
+				{
+					"include" : "#struct-highlighting"
+				},
+				{
+					"include" : "#variables"
+				},
+				{
+					"include" : "#dot-operators"
+				},
+				{
+					"include" : "#keywords"
+				}
+			]
+		},
+		"if-statement" : {
+			"begin" : "\\bif\\(",
+			"end" : "\\)",
+			"beginCaptures" : {
+				"1": {
+					"name": "keyword.control.if-statement"
+				},
+				"2": {
+					"name": "punctuation.separator.parameters.begin.oat"
+				}
+			},
+			"endCaptures" : {
+				"0" : {
+					"name" : "punctuation.separator.parameters.end.oat"
+				}
+			},
+			"patterns" : [
+				{
+					"include" : "#types"
+				},
+				{
+					"include": "#numbers"
+				},
+				{
+					"include" : "#struct-highlighting"
+				},
+				{
+					"include" : "#variables"
+				},
+				{
+					"include" : "#dot-operators"
+				},
+				{
+					"include" : "#keywords"
+				}
+			]
+		},
+		"checked-downcast" : {
+			"begin" : "\\bif\\?\\(",
+			"end" : "\\)",
+			"beginCaptures" : {
+				"1": {
+					"name": "keyword.control.checked-downcast"
+				},
+				"2": {
+					"name": "punctuation.separator.parameters.begin.oat"
+				}
+			},
+			"endCaptures" : {
+				"0" : {
+					"name" : "punctuation.separator.parameters.end.oat"
+				}
+			},
+			"patterns" : [
+				{
+					"include" : "#types"
+				},
+				{
+					"include": "#numbers"
+				},
+				{
+					"include" : "#struct-highlighting"
+				},
+				{
+					"include" : "#variables"
+				},
+				{
+					"include" : "#dot-operators"
+				},
+				{
+					"include" : "#keywords"
 				}
 			]
 		},
@@ -155,9 +307,6 @@
 					"include": "#numbers"
 				},
 				{
-					"include": "#types"
-				},
-				{
 					"include" : "#struct-highlighting"
 				},
 				{
@@ -165,6 +314,9 @@
 				},
 				{
 					"include" : "#dot-operators"
+				},
+				{
+					"include" : "#keywords"
 				}
 			]
 		},
@@ -188,7 +340,7 @@
 			"patterns" : [
 				{
 					"name": "entity.name.variable",
-					"match" : "\\b[a-z0-9_]+(?:_[a-z0-9_]+)*\\b(?!\\?)"
+					"match" : "\\b[a-z0-9_]+(?:_[a-zA-Z0-9_]+)*\\b(?!\\?)"
 				}
 			]
 		},
