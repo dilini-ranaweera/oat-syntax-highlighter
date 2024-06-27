@@ -76,7 +76,7 @@
         },
         {
           "name": "keyword.control.oat",
-          "match": "\\b(while|for|return|else)\\b"
+          "match": "\\b(while|for|return|else)\\b\\s?"
         },
         {
           "name": "keyword.declaration.oat",
