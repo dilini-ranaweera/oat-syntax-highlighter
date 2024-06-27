@@ -1,205 +1,232 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "OAT",
-	"patterns": [
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		},
-		{
-			"include": "#types"
-		}, 
-		{
-			"include": "#numbers"
-		},
-		{
-			"include": "#literals"
-		},
-		{
-			"include": "#builtins"
-		},
-		{
-			"include": "#punctuation"
-		},
-		{
-			"include": "#function-headers"
-		},
-		{
-			"include" : "#struct-highlighting"
-		},
-		{
-			"include" : "#variables"
-		},
-		{
-			"include" : "#dot-operators"
-		}
-	],
-	"repository": {
-		"keywords": {
-			"patterns": [
-				{
-					"name": "keyword.control.if-question.oat",
-					"match": "\\bif\\?"
-				},
-				{
-					"name": "keyword.control.if.oat",
-					"match": "\\bif\\b"
-				},
-				{
-					"name": "keyword.control.oat",
-					"match": "\\b(while|for|return|else)\\b"
-				},
-				{
-					"name": "keyword.declaration.oat",
-					"match": "\\b(var|new|global|struct)\\b"
-				}
-			]
-		},
-		"strings": {
-			"name": "string.quoted.double.oat",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.oat",
-					"match": "\\\\."
-				}
-			]
-		},
-		"types": {
-			"patterns": [
-				{
-					"name": "storage.builtin.types.oat",
-					"match": "\\b(int|string|void|bool)\\b"
-				}
-			]
-		},
-		"numbers": {
-			"patterns": [
-				{
-					"name": "constant.numeric.integer.oat",
-					"match": "\\b(?<![%!.#+])(\\d+)(?!\\.)\\b"
-				}
-			]
-		},
-		"literals": {
-			"patterns": [
-				{
-					"name": "constant.language.oat",
-					"match": "\\b(true|false|null)\\b"
-				},
-				{
-					"include": "#numbers"
-				}
-			]
-		},
-		"builtins": {
-			"patterns": [
-				{
-					"name": "support.function.builtin.oat",
-					"match": "\\b(print_string|print_int|print_bool|string_of_array|array_of_string|length)\\b"
-				}
-			]
-		},
-		"punctuation" : {
-			"patterns": [
-				{
-					"name": "punctuation.separator.parameters.begin.oat",
-					"match": "\\("
-				},
-				{
-					"name": "punctation.separator.parameters.end.oat",
-					"match": "\\)"
-				},
-				{
-					"name": "punctuation.separator.element.oat",
-					"match": ","
-				},
-				{
-					"name": "punctuation.separator.colon.oat",
-					"match": ":"
-				},
-				{
-					"name": "punctuation.section.block.begin.bracket.curly.oat",
-					"match": "{"
-				},
-				{
-					"name": "punctuation.section.block.end.bracket.curly.oat",
-					"match": "}"
-				}
-			]
-		},
-		"function-headers" : {
-			"begin": "(\\w*\\s?)(\\()",
-			"end": "\\)",
-			"beginCaptures": {
-				"1": {
-					"name": "entity.name.function"
-				},
-				"2": {
-					"name": "punctuation.separator.parameters.begin.oat"
-				}
-			},
-			"endCaptures" : {
-				"0" : {
-					"name" : "punctuation.separator.parameters.end.oat"
-				}
-			},
-			"patterns" : [
-				{
-					"include" : "#types"
-				},
-				{
-					"include": "#numbers"
-				},
-				{
-					"include": "#types"
-				},
-				{
-					"include" : "#struct-highlighting"
-				},
-				{
-					"include" : "#variables"
-				},
-				{
-					"include" : "#dot-operators"
-				}
-			]
-		},
-		"struct-highlighting" : {
-			"patterns" : [
-				{
-					"name": "entity.name.type.possibly-null-struct-array",
-					"match": "[A-Z][a-z]*\\[\\]\\?"
-				},
-				{
-					"name" : "entity.name.type.possibly-null-struct",
-					"match" : "[A-Z][a-z]*\\?"
-				},
-				{
-					"name" : "entity.name.type.struct",
-					"match" : "[A-Z][a-z]*"
-				}
-			]
-		},
-		"variables" : {
-			"patterns" : [
-				{
-					"name": "entity.name.variable",
-					"match" : "\\b[a-z][a-zA-Z0-9_]*\\b(?!\\?)"
-				}
-			]
-		},
-		"dot-operators" : {
-			"patterns" : [
-				{
-					"name": "entity.name.function.dot-method.oat",
-					"match" : "\\.\\w+"
-				}
-			]
-		}
-	},
-	"scopeName": "source.oat"
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "OAT",
+  "patterns": [
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#types"
+    },
+    {
+      "include": "#numbers"
+    },
+    {
+      "include": "#literals"
+    },
+    {
+      "include": "#builtins"
+    },
+    {
+      "include": "#punctuation"
+    },
+    {
+      "include": "#function-headers"
+    },
+    {
+      "include": "#struct-highlighting"
+    },
+    {
+      "include": "#variables"
+    },
+    {
+      "include": "#dot-operators"
+    }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.block.oat",
+          "begin": "/\\*",
+          "end": "\\*/",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.comment.begin.oat"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.comment.end.oat"
+            }
+          },
+          "patterns": [
+            {
+              "name": "comment.block.oat"
+            }
+          ]
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.if-question.oat",
+          "match": "\\bif\\?"
+        },
+        {
+          "name": "keyword.control.if.oat",
+          "match": "\\bif\\b"
+        },
+        {
+          "name": "keyword.control.oat",
+          "match": "\\b(while|for|return|else)\\b"
+        },
+        {
+          "name": "keyword.declaration.oat",
+          "match": "\\b(var|new|global|struct)\\b"
+        }
+      ]
+    },
+    "strings": {
+      "name": "string.quoted.double.oat",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.oat",
+          "match": "\\\\."
+        }
+      ]
+    },
+    "types": {
+      "patterns": [
+        {
+          "name": "storage.builtin.types.oat",
+          "match": "\\b(int|string|void|bool)\\b"
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.integer.oat",
+          "match": "\\b(?<![%!.#+])(\\d+)(?!\\.)\\b"
+        }
+      ]
+    },
+    "literals": {
+      "patterns": [
+        {
+          "name": "constant.language.oat",
+          "match": "\\b(true|false|null)\\b"
+        },
+        {
+          "include": "#numbers"
+        }
+      ]
+    },
+    "builtins": {
+      "patterns": [
+        {
+          "name": "support.function.builtin.oat",
+          "match": "\\b(print_string|print_int|print_bool|string_of_array|array_of_string|length)\\b"
+        }
+      ]
+    },
+    "punctuation": {
+      "patterns": [
+        {
+          "name": "punctuation.separator.parameters.begin.oat",
+          "match": "\\("
+        },
+        {
+          "name": "punctation.separator.parameters.end.oat",
+          "match": "\\)"
+        },
+        {
+          "name": "punctuation.separator.element.oat",
+          "match": ","
+        },
+        {
+          "name": "punctuation.separator.colon.oat",
+          "match": ":"
+        },
+        {
+          "name": "punctuation.section.block.begin.bracket.curly.oat",
+          "match": "{"
+        },
+        {
+          "name": "punctuation.section.block.end.bracket.curly.oat",
+          "match": "}"
+        }
+      ]
+    },
+    "function-headers": {
+      "begin": "(\\w*\\s?)(\\()",
+      "end": "\\)",
+      "beginCaptures": {
+        "1": {
+          "name": "entity.name.function"
+        },
+        "2": {
+          "name": "punctuation.separator.parameters.begin.oat"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.separator.parameters.end.oat"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#types"
+        },
+        {
+          "include": "#numbers"
+        },
+        {
+          "include": "#types"
+        },
+        {
+          "include": "#struct-highlighting"
+        },
+        {
+          "include": "#variables"
+        },
+        {
+          "include": "#dot-operators"
+        }
+      ]
+    },
+    "struct-highlighting": {
+      "patterns": [
+        {
+          "name": "entity.name.type.possibly-null-struct-array",
+          "match": "[A-Z][a-z]*\\[\\]\\?"
+        },
+        {
+          "name": "entity.name.type.possibly-null-struct",
+          "match": "[A-Z][a-z]*\\?"
+        },
+        {
+          "name": "entity.name.type.struct",
+          "match": "[A-Z][a-z]*"
+        }
+      ]
+    },
+    "variables": {
+      "patterns": [
+        {
+          "name": "entity.name.variable",
+          "match": "\\b[a-z][a-zA-Z0-9_]*\\b(?!\\?)"
+        }
+      ]
+    },
+    "dot-operators": {
+      "patterns": [
+        {
+          "name": "entity.name.function.dot-method.oat",
+          "match": "\\.\\w+"
+        }
+      ]
+    }
+  },
+  "scopeName": "source.oat"
 }
