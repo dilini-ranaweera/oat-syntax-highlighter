@@ -68,11 +68,11 @@
       "patterns": [
         {
           "name": "keyword.control.if-question.oat",
-          "match": "\\bif\\?"
+          "match": "\\bif\\n\\s?"
         },
         {
           "name": "keyword.control.if.oat",
-          "match": "\\bif\\b"
+          "match": "\\bif\\b\\s?"
         },
         {
           "name": "keyword.control.oat",
@@ -80,7 +80,7 @@
         },
         {
           "name": "keyword.declaration.oat",
-          "match": "\\b(var|new|global|struct)\\b"
+          "match": "\\b(var|new|global|struct)\\b\\s?"
         }
       ]
     },
