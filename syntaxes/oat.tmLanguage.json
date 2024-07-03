@@ -107,7 +107,7 @@
       "patterns": [
         {
           "name": "constant.numeric.integer.oat",
-          "match": "\\b(?<![%!.#+])(\\d+)(?!\\.)\\b"
+          "match": "(?<![%!.#])\\s*\\b(\\d+)(?!\\.)"
         }
       ]
     },
