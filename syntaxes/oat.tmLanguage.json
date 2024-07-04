@@ -68,7 +68,7 @@
       "patterns": [
         {
           "name": "keyword.control.if-question.oat",
-          "match": "\\bif\\n\\s?"
+          "match": "\\bif\\?\\s?"
         },
         {
           "name": "keyword.control.if.oat",
@@ -195,6 +195,9 @@
         },
 		{
 			"include": "#strings"
+		},
+		{
+			"include": "#builtins"
 		}
       ]
     },
